@@ -13,7 +13,9 @@ def getMask(lowerRange, upperRange, img):
 
 def main():
     img=openImg(input())
-    cv.imwrite("output.jpg",getMask(np.array([50, 20, 20]),np.array([255, 255, 255]),img))
+    mask=getMask(np.array([50, 20, 20]),np.array([255, 255, 255]),img)
+    maskedImg=cv.bitwise_and(img,img,mask=mask)
+    cv.imwrite("output.jpg",maskedImg)
 
 
 if __name__ == "__main__":
