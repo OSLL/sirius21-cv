@@ -13,11 +13,8 @@ def getMask(lowerRange, upperRange, img):
 
 def main():
     img=openImg(input())
-    cv.imshow("hi",img)
-    cv.waitKey(0)
-    cv.imshow("hi",getMask(np.array([50, 20, 20]),np.array([255, 255, 255]),img))
-    cv.waitKey(0)
-    cv.destroyAllWindows()
+    cv.imwrite("output.jpg",getMask(np.array([50, 20, 20]),np.array([255, 255, 255]),img))
+
 
 if __name__ == "__main__":
     main()
