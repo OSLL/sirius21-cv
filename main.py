@@ -1,7 +1,7 @@
 import cv2 as cv
 import numpy as np
 
-filenames = ['img/1red_small.jpg', 'img/5red_small.jpg']
+filenames = ['img/1red_small.jpg', 'img/3red_small.jpg', 'img/5red_small.jpg', 'img/nored_small.jpg', 'img/size_balls_small.jpg', 'img/1red.jpg', 'img/3red.jpg', 'img/5red.jpg', 'img/nored.jpg', 'img/size_balls.jpg']
 color_limits = [(0, 12), (80, 100)]
 
 def main():
@@ -25,8 +25,10 @@ def main():
     mask = cv.dilate(mask, kernel, iterations=1)
     cv.imshow('dilated2', mask)
 
+    #contours, hierarchy = np.array(cv.findContours(mask, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE))
     contours, hierarchy = cv.findContours(mask, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
-    cv.drawContours(img, contours, -1, (0, 255, 0), 2)
+
+    cv.drawContours(img, contours, -1, (0, 255, 0), 3)
 
     balls_number = 0
 
