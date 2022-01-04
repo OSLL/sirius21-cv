@@ -13,7 +13,7 @@ def cvOpenImg(path: str) -> numpy.ndarray:
 def main():
     low, high = (140, 0, 0), (255, 255, 255)
 
-    image_path = os.path.normpath(input("Введите путь к картинке(он не должен содержать русские буквы): "))
+    image_path = os.path.normpath(input("Введите путь к изображению(путь не должен содержать русские буквы): "))
     image_dir = os.path.dirname(image_path)
     image_basename = os.path.basename(image_path)
     image_name, image_extension = os.path.splitext(image_basename)
@@ -27,7 +27,7 @@ def main():
     img_mask = cv.bitwise_and(img, img, mask=mask)
 
     cv.imwrite(save_path, img_mask)
-    print(f"Картинка сохранена в {save_path}")
+    print(f"Изображение сохранено в {save_path}")
 
 
 if __name__ == '__main__':
