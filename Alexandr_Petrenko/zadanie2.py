@@ -1,13 +1,8 @@
 import cv2 as cv
 import numpy as np
 
-# 11111
-# 11111
-# 11111
-# 11111
-# 11111
 
-filenames = ['img/1red_small.jpg', 'img/5red_small.jpg']
+filenames = ['img/1red_small.jpg', 'img/1red.jpg', 'img/5red_small.jpg', 'img/5red.jpg','img/3red_small.jpg', 'img/3red.jpg', 'img/nored.jpg', 'img/nored_small.jpg', 'img/size_balls.jpg', 'img/size_balls_small.jpg']
 color_limits = [(0, 12), (88, 104), (10, 23), (106, 150), (17, 50), (42, 87 )]
 
 def main():
