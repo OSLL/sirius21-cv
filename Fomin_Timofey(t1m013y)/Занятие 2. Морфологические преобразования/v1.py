@@ -54,7 +54,7 @@ def main():
 
     quantity = len([el for el in hierarchy[0] if el[3] == -1] if hierarchy is not None else [])
 
-    print(f"Красных мячиков на картинке: {quantity}" if quantity != 0 else "На изображении нет красных мячиков. ")
+    print(f"Красных мячиков на картинке: {quantity}. " if quantity != 0 else "На изображении нет красных мячиков. ")
 
 
 if __name__ == '__main__':
