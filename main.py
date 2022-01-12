@@ -1,4 +1,5 @@
 import sys
+from os.path import exists
 
 def main():
     if len(sys.argv) == 1:
@@ -15,6 +16,11 @@ def main():
 
     print(path)
 
+    if not exists(path):
+        print("Invalid file path. Type correct path")
+        return
+
+    print("File exists. Path OK")
 
 if __name__ == "__main__":
     main()
