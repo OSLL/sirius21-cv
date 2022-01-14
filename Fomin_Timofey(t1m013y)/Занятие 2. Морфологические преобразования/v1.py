@@ -40,9 +40,9 @@ def main():
         mask0 = cv.inRange(img_hsv, *color_limits_255[0])
         mask1 = cv.inRange(img_hsv, *color_limits_255[1])
         mask = cv.bitwise_or(mask0, mask1)
+        del mask0, mask1
     else:
         raise ValueError
-    del mask0, mask1
 
     kernel = numpy.ones((5, 5))
     mask = cv.dilate(mask, kernel)
