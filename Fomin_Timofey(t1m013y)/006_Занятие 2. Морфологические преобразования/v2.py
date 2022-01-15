@@ -78,10 +78,9 @@ def main():
 
     quantity = len(hierarchy[0]) if hierarchy is not None else 0
 
-    print(f"Цвет: {colors[color]}; ",
-          f"Количество мячиков этого цвета на картинке: {quantity}. " if quantity != 0 else
-          "На изображении нет мячиков этого цвета. ",
-          sep='\n')
+    print(f"Цвет: {colors[color]}; ")
+    print(f"Количество мячиков этого цвета на картинке: {quantity}. " if quantity != 0 else
+          "На изображении нет мячиков этого цвета. ")
 
 
 if __name__ == '__main__':
