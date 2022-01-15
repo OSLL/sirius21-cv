@@ -49,9 +49,9 @@ def main():
     mask = cv.erode(mask, kernel)
     mask = cv.dilate(mask, kernel)
 
-    contours, hierarchy = cv.findContours(mask, cv.RETR_CCOMP, cv.CHAIN_APPROX_SIMPLE)
+    contours, hierarchy = cv.findContours(mask, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
 
-    quantity = len([el for el in hierarchy[0] if el[3] == -1] if hierarchy is not None else [])
+    quantity = len(hierarchy[0]) if hierarchy is not None else 0
 
     print(f"Красных мячиков на картинке: {quantity}. " if quantity != 0 else "На изображении нет красных мячиков. ")
 
