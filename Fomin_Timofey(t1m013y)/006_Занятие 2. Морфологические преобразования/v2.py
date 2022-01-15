@@ -15,7 +15,7 @@ colors = {1: "Красный",
           9: "Фиолетовый"}
 color_limits = {1: [((1, 30, 0), (8, 100, 100)), ((357, 30, 0), (359, 100, 100))],
                 2: [((22, 50, 10), (33, 100, 100))],
-                3: [((37, 50, 10), (45, 100, 100))],
+                3: [((37, 60, 10), (43, 100, 100))],
                 4: [((53, 45, 10), (58, 100, 100))],
                 5: [((105, 10, 10), (115, 100, 100))],
                 6: [((255, 20, 20), (266, 100, 100))],
@@ -74,9 +74,9 @@ def main():
     mask = cv.erode(mask, kernel)
     mask = cv.dilate(mask, kernel)
 
-    contours, hierarchy = cv.findContours(mask, cv.RETR_CCOMP, cv.CHAIN_APPROX_SIMPLE)
+    contours, hierarchy = cv.findContours(mask, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
 
-    quantity = len([el for el in hierarchy[0] if el[3] == -1] if hierarchy is not None else [])
+    quantity = len(hierarchy[0]) if hierarchy is not None else 0
 
     print(f"Цвет: {colors[color]}; ",
           f"Количество мячиков этого цвета на картинке: {quantity}. " if quantity != 0 else
