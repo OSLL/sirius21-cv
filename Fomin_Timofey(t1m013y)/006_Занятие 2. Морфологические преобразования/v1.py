@@ -50,7 +50,6 @@ def main():
     mask = cv.dilate(mask, kernel)
 
     contours, hierarchy = cv.findContours(mask, cv.RETR_CCOMP, cv.CHAIN_APPROX_SIMPLE)
-    cv.drawContours(img, contours, -1, (255, 0, 0))
 
     quantity = len([el for el in hierarchy[0] if el[3] == -1] if hierarchy is not None else [])
 
@@ -61,4 +60,3 @@ if __name__ == '__main__':
     main()
     input("Press Enter to quit. \n")
     exit()
-    
