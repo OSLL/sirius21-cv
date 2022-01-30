@@ -92,9 +92,10 @@ def main():
     print(f"Цвет: {colors[color]}; ")
     print(f"Количество мячиков этого цвета на картинке: {quantity}. " if quantity != 0 else
           "На изображении нет мячиков этого цвета. ")
-    for c in coords:
+    for b in range(quantity):
+        c = coords[b]
         x, y = c[0], c[1]
-        print(f"x: {x} y: {y}")
+        print(f"{b+1} x: {x} y: {y}")
 
 
 if __name__ == "__main__":
