@@ -90,7 +90,7 @@ def main():
         coords.append((round(x + w / 2), round(y + h / 2)))
         sizes.append(int(numpy.mean((w, h))))
 
-    print(f"Цвет: {colors[color]}; ")
+    print(f"Цвет: {colors[color]}. ")
     print(f"Количество мячиков этого цвета на картинке: {quantity}. " if quantity != 0 else
           "На изображении нет мячиков этого цвета. ")
     for b in range(quantity):
