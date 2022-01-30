@@ -87,7 +87,6 @@ def main():
     for rect in rects:
         x, y, w, h = rect[0][0], rect[0][1], rect[1][0], rect[1][1]
         coords.append((round(x + w / 2), round(y + h / 2)))
-        cv.circle(img, (round(x + w / 2), round(y + h / 2)), 2, (0, 0, 255), 2)
 
     print(f"Цвет: {colors[color]}; ")
     print(f"Количество мячиков этого цвета на картинке: {quantity}. " if quantity != 0 else
