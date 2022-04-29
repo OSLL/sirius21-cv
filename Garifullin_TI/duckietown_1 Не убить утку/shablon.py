@@ -26,3 +26,4 @@ class DontCrushDuckieTaskSolution(TaskSolution):
             if res > 17.59:
                 condition = False
             env.render()
+
