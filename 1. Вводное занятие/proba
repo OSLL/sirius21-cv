@@ -1,7 +1,8 @@
-from PIL import Image
-from urllib.request import urlopen
+def main():
+    path_file = '../img/1red.jpg'
+    path_file_mask = path_file.replace('.jpg', '_mask.jpg')
+    print (path_file)
+    print (path_file_mask)
 
-url = input()
-
-image = Image.open(urlopen(url))
-image.show()
+if __name__ == "__main__":
+    main()
