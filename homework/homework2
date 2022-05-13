@@ -1,0 +1,50 @@
+import cv2 as cv
+import numpy as np
+
+nameimg = ['img/1red_small.jpg', 'img/1red.jpg', 'img/5red_small.jpg', 'img/5red.jpg', 'img/3red_small.jpg',
+             'img/3red.jpg', 'img/nored.jpg', 'img/nored_small.jpg', 'img/size_balls.jpg', 'img/size_balls_small.jpg']
+color_limits = [(0, 12), (88, 104), (10, 23), (106, 150), (17, 50), (42, 87)]
+
+
+def main():
+    imgn = int(input('Номер Изображения = '))
+    img = cv.imread(nameimg[imgn], 3)
+    hsv = cv.cvtColor(img, cv.COLOR_BGR2HSV)
+    color = 0
+    name = str(input('Название цвета(латиницой) = '))
+    if name == "red":
+        color = 0
+    elif name == "blue":
+        color = 1
+    elif name == "orange":
+        color = 2
+    elif name == "purple":
+        color = 3
+    elif name == "yellow":
+        color = 4
+    elif name == "green":
+        color = 5
+    mask = cv.inRange(hsv, (color_limits[color][0], 50, 50), (color_limits[color][1], 255, 255))
+    cv.imshow('Window', mask)
+    ger = np.ones((5, 5), 'uint8')
+    mask = cv.dilate(mask, ger, iterations=1)
+    cv.imshow('Window', mask)
+    mask = cv.erode(mask, ger, iterations=2)
+    cv.imshow('Window', mask)
+    mask = cv.dilate(mask, ger, iterations=1)
+    cv.imshow('window', mask)
+    contours, beg = cv.findContours(mask, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+    cv.drawContours(img, contours, -1, (0, 255, 0), 2)
+    ballsnum = 0
+    for line in contours:
+        x, y, w, h = cv.boundingRect(line)
+        cv.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 1)
+        ballsnum += 1
+    print("Мячики = ", ballsnum)
+    print("длина = ", len(contours))
+    cv.imshow('Window', img)
+    cv.waitKey(0)
+
+
+if __name__ == "__main__":
+    main()
