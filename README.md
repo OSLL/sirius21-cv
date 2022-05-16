@@ -1,2 +1,1 @@
-# Распознавание разметки
-## Kovrov EV branch
+# sirius21-cv
