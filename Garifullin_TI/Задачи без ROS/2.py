@@ -7,7 +7,5 @@ class Ride1MTaskSolution(TaskSolution):
 
     def solve(self):
         env = self.generated_task['env']
-        x = start = env.cur_pos[0]
-        while x - start < 1:
-            env.step([0.5, 0])
-            x = env.cur_pos[0]
+        start = env.cur_pos[0]
+        while env.cur_pos[0] - start < 1: env.step([0.5, 0])
